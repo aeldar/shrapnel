@@ -1,0 +1,26 @@
+name: Release (linux)
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install upx
+        run: sudo apt-get install upx
+      - name: Build
+        run: cargo build --release --verbose
+      - name: Pack
+        run: upx --ultra-brute target/release/shrapnel
+      - name: Zip
+        run: zip --junk-paths shrapnel-x86_64-unknown-linux-gnu target/release/shrapnel
+      - name: Publish to github release
+        uses: skx/github-action-publish-binaries@release-1.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: shrapnel-x86_64-unknown-linux-gnu.zip

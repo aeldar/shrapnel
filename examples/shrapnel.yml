@@ -1,0 +1,7 @@
+fragments:
+  - name: hello
+    dir: ./example_dir
+    cmd: npm start
+  - name: hi
+    dir: ./example2_dir
+    cmd: npm start --prod

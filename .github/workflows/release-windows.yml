@@ -1,4 +1,4 @@
-name: Release (windows)
+name: release (windows)
 
 on:
   release:

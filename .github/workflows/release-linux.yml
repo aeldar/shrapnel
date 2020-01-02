@@ -14,14 +14,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Install upx
-        run: sudo apt-get install upx
+      # - name: Install upx
+      #   run: sudo apt-get install upx
       - name: Build
         run: cargo build --release --verbose
       - name: Strip
         run: strip ${{ env.binary_deep_name }}
-      - name: Pack
-        run: upx --best ${{ env.binary_deep_name }}
+      # - name: Pack
+      #   run: upx --best ${{ env.binary_deep_name }}
       - name: Zip
         run: 7z a ${{ env.zip_name }} ./${{ env.binary_deep_name }}
       - name: Publish to github release

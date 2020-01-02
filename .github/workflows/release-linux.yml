@@ -26,6 +26,8 @@ jobs:
         run: upx --best target/release/shrapnel
       - name: Zip
         run: zip --junk-paths ${{ env.zip_name }} ${{ env.binary_path }}/${{ env.binary_name }}
+      - name: DEBUG
+        run: ls -alh
       - name: Publish to github release
         uses: skx/github-action-publish-binaries@release-1.3
         env:

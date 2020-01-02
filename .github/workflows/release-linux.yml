@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: cargo build --release --verbose
       - name: Strip
-        run: strip -p --strip-unneeded --remove-section=.comment ${{ env.binary_deep_name }}
+        run: strip ${{ env.binary_deep_name }}
       - name: Pack
         run: upx --best ${{ env.binary_deep_name }}
       - name: Zip

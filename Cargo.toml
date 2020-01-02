@@ -9,3 +9,10 @@ edition = "2018"
 [dependencies]
 clap = "2.33.0"
 yaml-rust = "0.4.3"
+
+[profile.release]
+## optimization technics taken from https://github.com/johnthagen/min-sized-rust
+opt-level = 'z'  # Optimize for size
+lto = true
+codegen-units = 1
+panic = 'abort'

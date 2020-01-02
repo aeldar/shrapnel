@@ -8,7 +8,7 @@ license-file = "LICENSE"
 description = "A tiny utility to run multiple processes for development purposes."
 homepage = "https://github.com/aeldar/shrapnel"
 documentation = "https://github.com/aeldar/shrapnel"
-repository = "git@github.com:aeldar/shrapnel.git"
+repository = "https://github.com/aeldar/shrapnel.git"
 
 exclude = [".github/*"]
 

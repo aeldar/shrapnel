@@ -8,7 +8,7 @@ env:
   rustc_target_name: x86_64-unknown-linux-gnu
   binary_path: target/release
   binary_name: shrapnel
-  zip_name: shrapnel-${{ github.event.release.tag_name }}-x86_64-unknown-linux-gnu
+  zip_name: shrapnel-${{ github.event.release.tag_name }}-x86_64-unknown-linux-gnu.zip
 
 jobs:
   build:
@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: ${{ env.zip_name }}.zip
+          args: ${{ env.zip_name }}

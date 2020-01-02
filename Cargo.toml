@@ -4,6 +4,14 @@ version = "0.1.0"
 authors = ["aeldar <eldar.aliyev8@gmail.com>"]
 edition = "2018"
 
+license-file = "LICENSE"
+description = "A tiny utility to run multiple processes for development purposes."
+homepage = "https://github.com/aeldar/shrapnel"
+documentation = "https://github.com/aeldar/shrapnel"
+repository = "git@github.com:aeldar/shrapnel.git"
+
+exclude = [".github/*"]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

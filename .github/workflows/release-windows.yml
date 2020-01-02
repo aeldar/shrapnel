@@ -4,6 +4,10 @@ on:
   release:
     types: [published]
 
+env:
+  binary_deep_name: target/release/shrapnel.exe
+  zip_name: shrapnel-${{ github.event.release.tag_name }}-i686-pc-windows-msvc.7z
+
 jobs:
   build:
     runs-on: windows-latest
@@ -12,7 +16,9 @@ jobs:
       - uses: actions/checkout@v1
       - name: Build
         run: cargo build --release --verbose
+      - name: Zip
+        run: 7z a ${{ env.zip_name }} ./${{ env.binary_deep_name }}
       - name: Publish to github release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: sh .\.github\scripts\upload-script.sh target/release/shrapnel.exe
+        run: sh .\.github\scripts\upload-script.sh ${{ env.zip_name }}

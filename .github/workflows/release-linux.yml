@@ -4,6 +4,12 @@ on:
   release:
     types: [published]
 
+env:
+  rustc_target_name: x86_64-unknown-linux-gnu
+  binary_path: target/release
+  binary_name: shrapnel
+  zip_name: shrapnel-${{ github.event.release.id }}-x86_64-unknown-linux-gnu
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,14 +21,14 @@ jobs:
       - name: Build
         run: cargo build --release --verbose
       - name: Strip
-        run: strip -p --strip-unneeded --remove-section=.comment target/release/shrapnel
+        run: strip -p --strip-unneeded --remove-section=.comment ${{ env.binary_path }}/${{ env.binary_name }}
       - name: Pack
         run: upx --best target/release/shrapnel
       - name: Zip
-        run: zip --junk-paths shrapnel-x86_64-unknown-linux-gnu target/release/shrapnel
+        run: zip --junk-paths ${{ env.zip_name }} ${{ env.binary_path }}/${{ env.binary_name }}
       - name: Publish to github release
         uses: skx/github-action-publish-binaries@release-1.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: shrapnel-x86_64-unknown-linux-gnu.zip
+          args: ${{ env.zip_name }}.zip

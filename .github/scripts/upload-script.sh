@@ -32,25 +32,15 @@ for file in $*; do
 
     echo "Processing file ${file}"
 
-    if [ ! -e "$file" ]; then
-        echo "***************************"
-        echo " file not found - skipping."
-        echo "***************************"
-        continue
-    fi
+    test ! -e "$file" && echo " file not found - skipping." && continue
 
-    if [ ! -s "$file" ]; then
-        echo "**************************"
-        echo " file is empty - skipping."
-        echo "**************************"
-        continue
-    fi
+    test ! -s "$file" && echo " file is empty - skipping." && continue
 
 
     FILENAME=$(basename "${file}")
 
     UPLOAD_URL="https://uploads.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}/assets?name=${FILENAME}"
-    echo "Upload URL is ${UPLOAD_URL}"
+    echo "Upload URL: ${UPLOAD_URL}"
 
     # Generate a temporary file.
     tmp=$(mktemp)

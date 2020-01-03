@@ -6,3 +6,6 @@ fragments:
   - name: hi
     dir: ../..
     cmd: ls -alh
+  - name: react app
+    dir: ../../react-app
+    cmd: ls

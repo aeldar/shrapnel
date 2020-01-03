@@ -1,7 +1,8 @@
 fragments:
   - name: hello
-    dir: ./example_dir
-    cmd: npm start
+    # dir: ./example_dir
+    # cmd: npm start
+    cmd: dir
   - name: hi
-    dir: ./example2_dir
-    cmd: npm start --prod
+    dir: ../..
+    cmd: ls -alh

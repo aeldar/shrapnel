@@ -16,7 +16,7 @@ exclude = [".github/*"]
 
 [dependencies]
 clap = "2.33.0"
-yaml-rust = "0.4.3"
+yaml-rust = "0.4.5"
 
 [profile.release]
 ## optimization technics taken from https://github.com/johnthagen/min-sized-rust

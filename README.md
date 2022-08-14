@@ -30,7 +30,7 @@ shrapnel
 
 ## Installation
 
-Download the binary from the Releases section of the [Github repository](releases) and place it somewhere in your PATH.
+Download the binary from the Releases section of the [Github repository](/aeldar/shrapnel/releases) and place it somewhere in your PATH.
 
 ## Special notes
 

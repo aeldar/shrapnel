@@ -6,7 +6,7 @@
 [release-linux-badge]: https://github.com/aeldar/shrapnel/workflows/release%20(linux)/badge.svg
 [release-windows-badge]: https://github.com/aeldar/shrapnel/workflows/release%20(windows)/badge.svg
 
-A damned simple runner of multipple commands at once. Works on Windows and Linux.
+A damned simple runner of multiple commands at once. Works on Windows and Linux.
 
 ## What for?
 
